@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import AppCenter
+import AppCenterCrashes
 class ThumbView: UIView {
 
     override class var layerClass: AnyClass {
@@ -44,7 +45,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        MSAppCenter.start("f7df2b36-6396-4b2b-93c9-3308fdb36a06", withServices:[
+          MSCrashes.self
+        ])
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
